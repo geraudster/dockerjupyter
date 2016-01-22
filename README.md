@@ -1,3 +1,5 @@
+Container for Jupyter with Python3 kernel.
+
 ## Get image
 
     $ docker pull geraudster/dockerjupyter
