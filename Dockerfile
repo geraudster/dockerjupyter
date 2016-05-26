@@ -10,6 +10,8 @@ RUN mkdir -p /data/jupyter/ && chown jupyter /data/jupyter/
 
 COPY conf/jupyter_notebook_config.py /home/jupyter/.jupyter/
 
+RUN apt-get -y install pandoc
+
 USER jupyter
 ENV LANG en_US.UTF-8
 ENV LANGUAGE en_US:en
