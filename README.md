@@ -31,5 +31,5 @@ Create a working dir where all notebooks will be stored:
 
     $ docker run -d -v $HOME/.jupyter/secret:/home/jupyter/secret \
                     -v $HOME/jupyter:/data/jupyter \
-                    -p 8888:8888 geraudster/dockerjupyter jupyter notebook
+                    -p 8888:8888 geraudster/dockerjupyter
 

@@ -16,6 +16,11 @@ RUN apt-get -y install \
     libzmq3-dev \
     pandoc
 
+RUN curl -L -o tini https://github.com/krallin/tini/releases/download/v0.9.0/tini && \
+    echo "faafbfb5b079303691a939a747d7f60591f2143164093727e870b289a44d9872 *tini" | sha256sum -c - && \
+    mv tini /usr/local/bin/tini && \
+    chmod +x /usr/local/bin/tini
+
 RUN pip3 install jupyter && ipython3 kernel install
  
 RUN (adduser --disabled-password --gecos "" jupyter) 
@@ -31,3 +36,7 @@ ENV LANGUAGE en_US:en
 ENV LC_ALL en_US.UTF-8 
 WORKDIR /data/jupyter/
 
+ENTRYPOINT ["tini", "--"]
+CMD ["start.sh"]
+
+COPY start.sh /usr/local/bin
