@@ -16,7 +16,7 @@ RUN apt-get -y install \
     libzmq3-dev \
     pandoc
 
-RUN pip3 install jupyter 
+RUN pip3 install jupyter && ipython3 kernel install
  
 RUN (adduser --disabled-password --gecos "" jupyter) 
  
