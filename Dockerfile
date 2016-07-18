@@ -10,7 +10,8 @@ ENV LANGUAGE en_US:en
 ENV LC_ALL en_US.UTF-8
 
 RUN apt-get update && apt-get -y --no-install-recommends install \
-    build-essential python3-dev python3-pip python3-zmq \
+    build-essential python-dev python-pip python-zmq \
+    python-numpy python-scipy python-matplotlib python-pandas python-nose \
     curl \
     openjdk-8-jdk-headless \
     libcurl4-gnutls-dev \
@@ -23,7 +24,7 @@ RUN curl -L -o tini https://github.com/krallin/tini/releases/download/v0.9.0/tin
     mv tini /usr/local/bin/tini && \
     chmod +x /usr/local/bin/tini
 
-RUN pip3 install jupyter && ipython3 kernel install
+RUN pip install jupyter && ipython kernel install
  
 RUN (adduser --disabled-password --gecos "" jupyter) 
  
