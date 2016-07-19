@@ -10,13 +10,20 @@ ENV LANGUAGE en_US:en
 ENV LC_ALL en_US.UTF-8
 
 RUN apt-get update && apt-get -y --no-install-recommends install \
-    build-essential python-dev python-pip python-zmq \
+    python-pip python-zmq \
     python-numpy python-scipy python-matplotlib python-pandas python-nose \
+    python-configparser python-simplegeneric python-pexpect \
     curl \
     openjdk-8-jdk-headless \
-    libcurl4-gnutls-dev \
-    libzmq3-dev \
-    pandoc && \
+    && \
+    rm -rf /var/lib/apt/lists/*
+
+RUN apt-get update && apt-get -y --no-install-recommends -t jessie-backports install python-tornado \
+    python-functools32 \
+    python-jinja2 \
+    python-setuptools \
+    python-six \
+    && \
     rm -rf /var/lib/apt/lists/*
 
 RUN curl -L -o tini https://github.com/krallin/tini/releases/download/v0.9.0/tini && \
