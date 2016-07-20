@@ -38,8 +38,10 @@ Create a working dir where all notebooks will be stored:
 
     $ mkdir ~/jupyter
 
-Run it with:
+Run it with (please note the 2 environment variables SSL_ENABLED and PASSWORD_ENABLED):
 
     $ docker run -d -v $HOME/.jupyter/secret:/home/jupyter/secret \
                     -v $HOME/jupyter:/data/jupyter \
+                    -e SSL_ENABLED=true \
+                    -e PASSWORD_ENABLED=true \
                     -p 8888:8888 geraudster/dockerjupyter
