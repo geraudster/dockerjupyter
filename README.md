@@ -1,10 +1,21 @@
-Container for Jupyter with Python3 kernel.
+Container for Jupyter with Python 2.7 kernel.
 
 ## Get image
 
     $ docker pull geraudster/dockerjupyter
 
-## Configuration
+## Run it
+
+    $ docker run -d -p 8888:8888 geraudster/dockerjupyter
+
+Connect to http://localhost:8888
+
+With notebooks persistence on local filesystem:
+
+    $ docker run -d -v $HOME/jupyter:/data/jupyter \
+                    -p 8888:8888 geraudster/dockerjupyter
+
+## Configuration for SSL
 
 Create a directory ~/.jupyter/secret, then create keypair:
 
@@ -14,8 +25,8 @@ Create a directory ~/.jupyter/secret, then create keypair:
 Generate a hashed password:
 
     $ docker run -it geraudster/rjupyter python3 -c 'from notebook.auth import passwd; print(passwd())'
-    Enter password: 
-    Verify password: 
+    Enter password:
+    Verify password:
     sha1:f09ac5efb12e:b628023298e751bb20b83466d63a9ed3ce04e9e9
 
 Type your password, then copy-paste the hashed password in your ~/.jupyter/secret/secret.ini:
@@ -27,9 +38,8 @@ Create a working dir where all notebooks will be stored:
 
     $ mkdir ~/jupyter
 
-## Run it
+Run it with:
 
     $ docker run -d -v $HOME/.jupyter/secret:/home/jupyter/secret \
                     -v $HOME/jupyter:/data/jupyter \
                     -p 8888:8888 geraudster/dockerjupyter
-
