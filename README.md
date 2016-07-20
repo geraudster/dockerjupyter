@@ -45,3 +45,5 @@ Run it with (please note the 2 environment variables SSL_ENABLED and PASSWORD_EN
                     -e SSL_ENABLED=true \
                     -e PASSWORD_ENABLED=true \
                     -p 8888:8888 geraudster/dockerjupyter
+
+Then open https://localhost:8888
