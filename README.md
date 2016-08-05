@@ -24,7 +24,7 @@ Create a directory ~/.jupyter/secret, then create keypair:
 
 Generate a hashed password:
 
-    $ docker run -it geraudster/rjupyter python3 -c 'from notebook.auth import passwd; print(passwd())'
+    $ docker run -it geraudster/dockerjupyter python -c 'from notebook.auth import passwd; print(passwd())'
     Enter password:
     Verify password:
     sha1:f09ac5efb12e:b628023298e751bb20b83466d63a9ed3ce04e9e9
