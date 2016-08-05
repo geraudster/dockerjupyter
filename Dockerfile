@@ -23,6 +23,7 @@ RUN apt-get update && apt-get -y --no-install-recommends -t jessie-backports ins
     python-jinja2 \
     python-setuptools \
     python-six \
+    python-sklearn \
     && \
     rm -rf /var/lib/apt/lists/*
 
