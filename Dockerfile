@@ -9,21 +9,20 @@ ENV LANG en_US.UTF-8
 ENV LANGUAGE en_US:en
 ENV LC_ALL en_US.UTF-8
 
+COPY neurodebian.sources.list /etc/apt/sources.list.d
+RUN apt-key adv --recv-keys --keyserver hkp://pgp.mit.edu:80 0xA5D32F012649A5A9
 RUN apt-get update && apt-get -y --no-install-recommends install \
+    curl \
     python-pip python-zmq \
     python-numpy python-scipy python-matplotlib python-pandas python-nose \
     python-configparser python-simplegeneric python-pexpect \
-    curl \
-    openjdk-8-jdk-headless \
-    && \
-    rm -rf /var/lib/apt/lists/*
-
-RUN apt-get update && apt-get -y --no-install-recommends -t jessie-backports install python-tornado \
+    python-tornado \
     python-functools32 \
     python-jinja2 \
     python-setuptools \
     python-six \
     python-sklearn \
+    openjdk-8-jdk-headless \
     && \
     rm -rf /var/lib/apt/lists/*
 

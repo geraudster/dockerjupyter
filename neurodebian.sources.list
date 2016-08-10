@@ -1,0 +1,4 @@
+deb http://neurodebian.g-node.org data main
+#deb-src http://neurodebian.g-node.org data main
+deb http://neurodebian.g-node.org jessie main
+#deb-src http://neurodebian.g-node.org jessie main
